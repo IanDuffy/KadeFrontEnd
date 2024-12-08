@@ -1,0 +1,75 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.main-container {
+  @apply max-w-[1440px] mx-auto px-4 ;
+}
+
+@font-face {
+  font-family: "Suisse";
+  src: url("/fonts/fonts.woff2") format("woff");
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+img {
+  clip-path: inset(0% 0% 100% 0%);
+  opacity: 0;
+  animation: revealImage 0.3s ease forwards;
+}
+
+@keyframes revealImage {
+  to {
+    clip-path: inset(0%);
+    opacity: 1;
+  }
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
+}
+@layer base {
+  body {
+    @apply dark:bg-primary bg-gray-50 dark:text-white text-primary font-suisse;
+  }
+}
+.js-work-link {
+  text-decoration: none;
+  position: relative;
+  display: inline-block; /* Ensure the link is treated as a block for full-width underline */
+}
+
+.underlineas {
+  background: linear-gradient(to left, #908fa1, #908fa1);
+  -webkit-background-size: 0 1px;
+  background-size: 0 1px;
+  -webkit-background-position: 0 90%, 100% 90%;
+  display: inline;
+  background-position: 0 90%, 100% 90%;
+  background-repeat: no-repeat;
+  -webkit-transition: background-size cubic-bezier(0.8, 0, 0.2, 1) 375ms;
+  transition: background-size cubic-bezier(0.8, 0, 0.2, 1) 375ms;
+}
+
+.underlineas:hover {
+  background-size: 100% 1px;
+}
+
+.drop__down .arrow {
+  transform: translateX(-20px) rotate(-90deg);
+  transition: all 0.15s ease-in-out;
+  scale: 0.5;
+  opacity: 0;
+}
+
+.drop__down:hover .arrow {
+  transform: translateX(0) rotate(-90deg);
+  scale: 1;
+  opacity: 1;
+}
